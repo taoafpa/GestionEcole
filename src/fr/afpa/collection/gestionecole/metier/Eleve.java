@@ -21,6 +21,21 @@ public class Eleve {
 		this.adresse = adresse;
 		this.id = compteur++ ;
 	}
+	
+	
+	public Eleve(int id, String nom, String prenom, LocalDate dateNaissance, int age, Adresse adresse) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+		this.age = age;
+		this.adresse = adresse;
+	}
+
+
+
+
 	public static int getCompteur() {
 		return compteur;
 	}

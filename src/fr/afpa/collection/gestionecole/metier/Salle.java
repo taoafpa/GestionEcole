@@ -3,7 +3,7 @@ package fr.afpa.collection.gestionecole.metier;
 public class Salle {
 
 public	static int compteur = 0; 
-	 int id ; 
+	int id ; 
 	String code ;
 	String libelle;
 	
@@ -12,6 +12,18 @@ public	static int compteur = 0;
 		this.libelle = libelle;
 		this.id = compteur++ ;
 	}
+
+
+	
+	
+	public Salle(int id, String code, String libelle) {
+		super();
+		this.id = id;
+		this.code = code;
+		this.libelle = libelle;
+	}
+
+
 
 
 	public int getId() {
