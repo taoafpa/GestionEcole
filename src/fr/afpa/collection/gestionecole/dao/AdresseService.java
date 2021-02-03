@@ -65,23 +65,18 @@ public class AdresseService implements IDao<Adresse> {
 	@Override
 	public boolean update(Adresse ad) {
 		try {
-
 			String sql = "UPDATE ADRESSE SET NUM_RUE=? ,NOM_RUE=? ,CODE_POSTALE=? , VILLE= ?, PAYS = ?   where ADRESSE_ID=?";;
 			 // Get Connection
 		    Connection connection = ConnectionUtils.getMyConnection();
-
 			 // Create a PreparedStatement object.
 	        PreparedStatement pstm = connection.prepareStatement(sql);
-	        
 	        // Set value for the first parameter (First '?')
-	        
 	        pstm.setInt(1, ad.getNumRue());
 	        pstm.setString(2, ad.getNomRue());
 	        pstm.setInt(3, ad.getCodePostale());
 	        pstm.setString(4, ad.getVille());
 	        pstm.setString(5, ad.getPays());
 	        pstm.setInt(6, ad.getIdAdresse());
-	        
 	        System.out.println("Update OK "+ pstm.executeUpdate());
 			} catch (ClassNotFoundException | SQLException e1) {
 				// TODO Auto-generated catch block
@@ -106,17 +101,16 @@ public class AdresseService implements IDao<Adresse> {
 	        pstm.setInt(1, id);
 	        
 	        ResultSet rs = pstm.executeQuery();
-
 	        while (rs.next()) {
+	        	  int idadresse = rs.getInt(1);
 	            int numRue = rs.getInt(2);
 	            String nomRue = rs.getString(3);
 	            int codePostale = rs.getInt(4);
 	            String ville = rs.getString(5);
 	            String pays = rs.getString("PAYS");
-	    	 result = new Adresse( numRue,nomRue, codePostale, ville, pays) ;
+	    	 result = new Adresse(idadresse ,numRue,nomRue, codePostale, ville, pays) ;
 	        }
-	        
-	        
+	       
 	        System.out.println("Update OK "+rs.getRow());
 			} catch (ClassNotFoundException | SQLException e1) {
 				// TODO Auto-generated catch block
@@ -125,7 +119,6 @@ public class AdresseService implements IDao<Adresse> {
 			}
 			return result;
 	}
-
 
 	public Adresse findTheAdress(Adresse adr) {
 		for(Adresse e: findAll()) {
@@ -153,15 +146,11 @@ public class AdresseService implements IDao<Adresse> {
         Connection connection;
 		try {
 			connection = ConnectionUtils.getMyConnection();
-		
         // Create statement
         Statement statement = connection.createStatement();
-  
         String sql = "Select ADRESSE_ID, NUM_RUE, NOM_RUE,CODE_POSTALE, VILLE , PAYS from ADRESSE";
- 
         // Execute SQL statement returns a ResultSet object.
         ResultSet rs = statement.executeQuery(sql);
- 
         // Fetch on the ResultSet        
         // Move the cursor to the next record.
         while (rs.next()) {
@@ -181,12 +170,10 @@ public class AdresseService implements IDao<Adresse> {
 		}
  return result ;
 	}
-	
 
 	@Override
 	public String toString() {
 		return "listeAdresses= ";
 	}
-	
-	
+
 }

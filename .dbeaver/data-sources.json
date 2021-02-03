@@ -1,0 +1,67 @@
+{
+	"folders": {},
+	"connections": {
+		"mysql8-1775baba0a2-5cfa95a04a1ed2a2": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "ecole",
+			"save-password": true,
+			"show-system-objects": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "ecole",
+				"url": "jdbc:mysql://localhost:3306/ecole",
+				"home": "C:\\Program Files\\MySQL\\MySQL Server 8.0",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		},
+		"mysql8-1775bb65800-25bf45c965a3d7e5": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "ecolesup",
+			"save-password": true,
+			"show-system-objects": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "ecolesup",
+				"url": "jdbc:mysql://localhost:3306/ecolesup",
+				"home": "C:\\Program Files\\MySQL\\MySQL Server 8.0",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		},
+		"mysql8-17761e68271-1ca0786bd078c737": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "ecolesup 2",
+			"save-password": true,
+			"show-system-objects": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "ecolesup",
+				"url": "jdbc:mysql://localhost:3306/ecolesup",
+				"home": "C:\\Program Files\\MySQL\\MySQL Server 8.0",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false
+		}
+	}
+}

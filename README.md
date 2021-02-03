@@ -53,13 +53,13 @@ se connecter qur sql developper ou plsql developper avec simplerh/root;
 
 Lancez le script simplehr-oracle.sql qui est dans ressources/sql 
 
-ce script :
+Ce script :
 
 	- crée les tables 
 	- insère les données
 	- crée la procédure stocké : OL/SQL
 
-dans ConnectionUtils commanter la ligne mysql et décommanter la ligne oracle:
+Dans ConnectionUtils commanter la ligne mysql et décommanter la ligne oracle:
 
      // return MySQLConnUtils.getMySQLConnection();
    	return OracleConnUtils.getOracleConnection();

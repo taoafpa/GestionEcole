@@ -7,6 +7,13 @@ public	static int compteur = 0;
 	String code ;
 	String libelle;
 	
+	
+	public Salle() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public Salle(String code, String libelle) {
 		this.code = code;
 		this.libelle = libelle;
@@ -54,7 +61,40 @@ public	static int compteur = 0;
 
 	@Override
 	public String toString() {
-		return "Salle [id=" + id + ", code=" + code + ", libelle=" + libelle + "]";
+		return " \n Salle [id=" + id + ", code=" + code + ", libelle=" + libelle + "]";
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((code == null) ? 0 : code.hashCode());
+		result = prime * result + ((libelle == null) ? 0 : libelle.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Salle other = (Salle) obj;
+		if (code == null) {
+			if (other.code != null)
+				return false;
+		} else if (!code.equals(other.code))
+			return false;
+		if (libelle == null) {
+			if (other.libelle != null)
+				return false;
+		} else if (!libelle.equals(other.libelle))
+			return false;
+		return true;
 	}
 	
 	

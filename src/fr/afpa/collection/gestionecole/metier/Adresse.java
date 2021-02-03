@@ -135,7 +135,7 @@ public class Adresse {
 
 	@Override
 	public String toString() {
-		return "\n numRue=" + numRue + ", nomRue=" + nomRue + ", codePostale=" + codePostale + ", ville=" + ville
+		return "\n idAdresse : "+ idAdresse+" numRue=" + numRue + ", nomRue=" + nomRue + ", codePostale=" + codePostale + ", ville=" + ville
 				+ ", pays=" + pays + "";
 	}
 	
