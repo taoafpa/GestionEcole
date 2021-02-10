@@ -171,10 +171,7 @@ public class GraphPannel {
         gbc_dateChooser.gridx = 1;
         gbc_dateChooser.gridy = 3;
         frame.getContentPane().add(dateChooser, gbc_dateChooser);
-		
-        
 
-		
 		JLabel lblNewLabel_30 = new JLabel("Numero");
 		GridBagConstraints gbc_lblNewLabel_30 = new GridBagConstraints();
 		gbc_lblNewLabel_30.anchor = GridBagConstraints.EAST;
@@ -267,8 +264,6 @@ public class GraphPannel {
 		frame.getContentPane().add(nomPays, gbc_pays);
 		nomPays.setColumns(10);
 		
-		
-		
 		btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -281,34 +276,26 @@ public class GraphPannel {
 		frame.getContentPane().add(btnNewButton, gbc_btnNewButton);
 		
 		btnNewButton_1 = new JButton("Valider");
-		
+
 		btnNewButton_1.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
 				
 				nom = inputNom.getText();
-				
 				prenom = inputPrenom.getText();
-
+				// Adresse
 				numero = Integer.parseInt(numeroRue.getText());  
 				rue = nomRue.getText();  
 				codePostale = Integer.parseInt(codeP.getText());  
 				ville = nomVille.getText();  
 				pays = nomPays.getText();  
-
-				
+				// Date de naissance
 				Date dateNaissance = dateChooser.getDate();
-                
                 LocalDate localDate = Instant.ofEpochMilli(dateNaissance.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
-				
-				
-				
+
 				EleveService eleveService = new EleveService() ;
 				AdresseService adresseService = new AdresseService() ;
-				
-			//	LocalDate dateNaissance =LocalDate.of(annee, mois, jour) ;
-				
-			
+
 				Adresse adresseEleve = new Adresse (numero, rue, codePostale ,ville,pays) ;
 				System.out.println("adresseEleve : "+ adresseEleve);
 				 adresseService.create(adresseEleve) ;
