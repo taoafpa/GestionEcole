@@ -9,6 +9,8 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
 
+import com.toedter.calendar.JDateChooser;
+
 import fr.afpa.collection.gestionecole.dao.AdresseService;
 import fr.afpa.collection.gestionecole.dao.EleveService;
 import fr.afpa.collection.gestionecole.metier.Adresse;
@@ -17,7 +19,10 @@ import fr.afpa.collection.gestionecole.metier.Eleve;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -53,9 +58,6 @@ public class GraphPannel {
 	private JTextField nomPays;
 
 	
-	
-
-
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JLabel lblNewLabel_5;
@@ -154,70 +156,31 @@ public class GraphPannel {
 		frame.getContentPane().add(inputPrenom, gbc_inputPrenom);
 		inputPrenom.setColumns(10);
 		
-	
-		JLabel lblNewLabel_21 = new JLabel("Jour");
-		GridBagConstraints gbc_lblNewLabel_21 = new GridBagConstraints();
-		gbc_lblNewLabel_21.anchor = GridBagConstraints.EAST;
-		gbc_lblNewLabel_21.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_21.gridx = 0;
-		gbc_lblNewLabel_21.gridy = 3;
-		frame.getContentPane().add(lblNewLabel_21, gbc_lblNewLabel_21);
+		JLabel lblNewLabel_14 = new JLabel("Date Naissance");
+		GridBagConstraints gbc_lblNewLabel_14 = new GridBagConstraints();
+		gbc_lblNewLabel_14.anchor = GridBagConstraints.EAST;
+		gbc_lblNewLabel_14.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_14.gridx = 0;
+		gbc_lblNewLabel_14.gridy = 3;
+		frame.getContentPane().add(lblNewLabel_14, gbc_lblNewLabel_14);
 		
-		jourNaissance = new JTextField();
-		GridBagConstraints gbc_jourNaissance = new GridBagConstraints();
-		gbc_jourNaissance.gridwidth = 2;
-		gbc_jourNaissance.insets = new Insets(0, 0, 5, 0);
-		gbc_jourNaissance.fill = GridBagConstraints.HORIZONTAL;
-		gbc_jourNaissance.gridx = 1;
-		gbc_jourNaissance.gridy = 3;
-		frame.getContentPane().add(jourNaissance, gbc_jourNaissance);
-		jourNaissance.setColumns(3);
+		JDateChooser dateChooser = new JDateChooser();
+        GridBagConstraints gbc_dateChooser = new GridBagConstraints();
+        gbc_dateChooser.insets = new Insets(0, 0, 5, 5);
+        gbc_dateChooser.fill = GridBagConstraints.BOTH;
+        gbc_dateChooser.gridx = 1;
+        gbc_dateChooser.gridy = 3;
+        frame.getContentPane().add(dateChooser, gbc_dateChooser);
 		
-		JLabel lblNewLabel_22 = new JLabel("mois");
-		GridBagConstraints gbc_lblNewLabel_22 = new GridBagConstraints();
-		gbc_lblNewLabel_22.anchor = GridBagConstraints.EAST;
-		gbc_lblNewLabel_22.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_22.gridx = 0;
-		gbc_lblNewLabel_22.gridy = 4;
-		frame.getContentPane().add(lblNewLabel_22, gbc_lblNewLabel_22);
-		
-		moisNaissance = new JTextField();
-		GridBagConstraints gbc_moisNaissance = new GridBagConstraints();
-		gbc_moisNaissance.gridwidth = 2;
-		gbc_moisNaissance.insets = new Insets(0, 0, 5, 0);
-		gbc_moisNaissance.fill = GridBagConstraints.HORIZONTAL;
-		gbc_moisNaissance.gridx = 1;
-		gbc_moisNaissance.gridy = 4;
-		frame.getContentPane().add(moisNaissance, gbc_moisNaissance);
-		moisNaissance.setColumns(3);
-		
-		JLabel lblNewLabel_23 = new JLabel("année");
-		GridBagConstraints gbc_lblNewLabel_23 = new GridBagConstraints();
-		gbc_lblNewLabel_23.anchor = GridBagConstraints.EAST;
-		gbc_lblNewLabel_23.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_23.gridx = 0;
-		gbc_lblNewLabel_23.gridy = 5;
-		frame.getContentPane().add(lblNewLabel_23, gbc_lblNewLabel_23);
-		
-		anneeNaissance = new JTextField();
-		GridBagConstraints gbc_anneeNaissance = new GridBagConstraints();
-		gbc_anneeNaissance.gridwidth = 2;
-		gbc_anneeNaissance.insets = new Insets(0, 0, 5, 0);
-		gbc_anneeNaissance.fill = GridBagConstraints.HORIZONTAL;
-		gbc_anneeNaissance.gridx = 1;
-		gbc_anneeNaissance.gridy = 5;
-		frame.getContentPane().add(anneeNaissance, gbc_anneeNaissance);
-		anneeNaissance.setColumns(3);
-		
-		
-	
+        
+
 		
 		JLabel lblNewLabel_30 = new JLabel("Numero");
 		GridBagConstraints gbc_lblNewLabel_30 = new GridBagConstraints();
 		gbc_lblNewLabel_30.anchor = GridBagConstraints.EAST;
 		gbc_lblNewLabel_30.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_30.gridx = 0;
-		gbc_lblNewLabel_30.gridy = 6;
+		gbc_lblNewLabel_30.gridy = 4;
 		frame.getContentPane().add(lblNewLabel_30, gbc_lblNewLabel_30);
 		
 		numeroRue = new JTextField();
@@ -226,7 +189,7 @@ public class GraphPannel {
 		gbc_numrue.insets = new Insets(0, 0, 5, 0);
 		gbc_numrue.fill = GridBagConstraints.HORIZONTAL;
 		gbc_numrue.gridx = 1;
-		gbc_numrue.gridy = 6;
+		gbc_numrue.gridy = 4;
 		frame.getContentPane().add(numeroRue, gbc_numrue);
 		numeroRue.setColumns(10);
 		
@@ -326,11 +289,6 @@ public class GraphPannel {
 				nom = inputNom.getText();
 				
 				prenom = inputPrenom.getText();
-			//date de naissance
-				jour = Integer.parseInt(jourNaissance.getText());  
-				mois = Integer.parseInt(moisNaissance.getText());  
-				annee = Integer.parseInt(anneeNaissance.getText());  
-				// adresse
 
 				numero = Integer.parseInt(numeroRue.getText());  
 				rue = nomRue.getText();  
@@ -339,10 +297,16 @@ public class GraphPannel {
 				pays = nomPays.getText();  
 
 				
+				Date dateNaissance = dateChooser.getDate();
+                
+                LocalDate localDate = Instant.ofEpochMilli(dateNaissance.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+				
+				
+				
 				EleveService eleveService = new EleveService() ;
 				AdresseService adresseService = new AdresseService() ;
 				
-				LocalDate dateNaissance =LocalDate.of(annee, mois, jour) ;
+			//	LocalDate dateNaissance =LocalDate.of(annee, mois, jour) ;
 				
 			
 				Adresse adresseEleve = new Adresse (numero, rue, codePostale ,ville,pays) ;
@@ -351,7 +315,7 @@ public class GraphPannel {
 				Adresse theDatabaseAdress = adresseService.findTheAdress(adresseEleve) ;
 				System.out.println("theDatabaseAdress : "+ theDatabaseAdress);
 				
-				Eleve eleve = new Eleve (nom,prenom, dateNaissance , 33 , theDatabaseAdress ) ;
+				Eleve eleve = new Eleve (nom,prenom, localDate , 33 , theDatabaseAdress ) ;
 				// Je stocke cette adresse dans une autre variable
 				Eleve EleveToDelete = eleve ;
 				eleveService.create(eleve) ;
