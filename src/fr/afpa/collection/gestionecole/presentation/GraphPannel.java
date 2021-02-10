@@ -26,11 +26,23 @@ import javax.swing.JMenuItem;
 public class GraphPannel {
 	private JFrame frame;
 	private JFrame frame2;
-	private JTextField inputNom;
+	
+	// nom et prenom
 	private String nom;
 	private String prenom;
+	private JTextField inputNom;
 	private JTextField inputPrenom;
-	private JTextField dateNaissance;
+	
+	
+	
+	// date de naissance
+	private int jour;
+	private int mois;
+	private int annee;
+	private JTextField jourNaissance;
+	private JTextField moisNaissance;
+	private JTextField anneeNaissance;
+	
 	private JLabel lblNewLabel_3;
 	private JTextField adresse;
 	private JLabel lblNewLabel_4;
@@ -86,7 +98,7 @@ public class GraphPannel {
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		frame.getContentPane().setLayout(gridBagLayout);
 		
-		lblNewLabel_5 = new JLabel("CrÃ©ation d'Ã©lÃ¨ve");
+		lblNewLabel_5 = new JLabel("Création d'élève");
 		GridBagConstraints gbc_lblNewLabel_5 = new GridBagConstraints();
 		gbc_lblNewLabel_5.gridwidth = 3;
 		gbc_lblNewLabel_5.insets = new Insets(0, 0, 5, 5);
@@ -113,7 +125,7 @@ public class GraphPannel {
 		frame.getContentPane().add(inputNom, gbc_inputNom);
 		inputNom.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("PÃ©nom");
+		JLabel lblNewLabel_1 = new JLabel("Prénom");
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.anchor = GridBagConstraints.EAST;
 		
@@ -134,30 +146,67 @@ public class GraphPannel {
 		frame.getContentPane().add(inputPrenom, gbc_inputPrenom);
 		inputPrenom.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("Date de naissance");
-		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
-		gbc_lblNewLabel_2.anchor = GridBagConstraints.EAST;
-		gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_2.gridx = 0;
-		gbc_lblNewLabel_2.gridy = 3;
-		frame.getContentPane().add(lblNewLabel_2, gbc_lblNewLabel_2);
+	
+		JLabel lblNewLabel_21 = new JLabel("Jour");
+		GridBagConstraints gbc_lblNewLabel_21 = new GridBagConstraints();
+		gbc_lblNewLabel_21.anchor = GridBagConstraints.EAST;
+		gbc_lblNewLabel_21.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_21.gridx = 0;
+		gbc_lblNewLabel_21.gridy = 3;
+		frame.getContentPane().add(lblNewLabel_21, gbc_lblNewLabel_21);
 		
-		dateNaissance = new JTextField();
-		GridBagConstraints gbc_dateNaissance = new GridBagConstraints();
-		gbc_dateNaissance.gridwidth = 2;
-		gbc_dateNaissance.insets = new Insets(0, 0, 5, 0);
-		gbc_dateNaissance.fill = GridBagConstraints.HORIZONTAL;
-		gbc_dateNaissance.gridx = 1;
-		gbc_dateNaissance.gridy = 3;
-		frame.getContentPane().add(dateNaissance, gbc_dateNaissance);
-		dateNaissance.setColumns(10);
+		jourNaissance = new JTextField();
+		GridBagConstraints gbc_jourNaissance = new GridBagConstraints();
+		gbc_jourNaissance.gridwidth = 2;
+		gbc_jourNaissance.insets = new Insets(0, 0, 5, 0);
+		gbc_jourNaissance.fill = GridBagConstraints.HORIZONTAL;
+		gbc_jourNaissance.gridx = 1;
+		gbc_jourNaissance.gridy = 3;
+		frame.getContentPane().add(jourNaissance, gbc_jourNaissance);
+		jourNaissance.setColumns(3);
+		
+		JLabel lblNewLabel_22 = new JLabel("mois");
+		GridBagConstraints gbc_lblNewLabel_22 = new GridBagConstraints();
+		gbc_lblNewLabel_22.anchor = GridBagConstraints.EAST;
+		gbc_lblNewLabel_22.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_22.gridx = 0;
+		gbc_lblNewLabel_22.gridy = 4;
+		frame.getContentPane().add(lblNewLabel_22, gbc_lblNewLabel_22);
+		
+		moisNaissance = new JTextField();
+		GridBagConstraints gbc_moisNaissance = new GridBagConstraints();
+		gbc_moisNaissance.gridwidth = 2;
+		gbc_moisNaissance.insets = new Insets(0, 0, 5, 0);
+		gbc_moisNaissance.fill = GridBagConstraints.HORIZONTAL;
+		gbc_moisNaissance.gridx = 1;
+		gbc_moisNaissance.gridy = 4;
+		frame.getContentPane().add(moisNaissance, gbc_moisNaissance);
+		moisNaissance.setColumns(3);
+		
+		JLabel lblNewLabel_23 = new JLabel("année");
+		GridBagConstraints gbc_lblNewLabel_23 = new GridBagConstraints();
+		gbc_lblNewLabel_23.anchor = GridBagConstraints.EAST;
+		gbc_lblNewLabel_23.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_23.gridx = 0;
+		gbc_lblNewLabel_23.gridy = 5;
+		frame.getContentPane().add(lblNewLabel_23, gbc_lblNewLabel_23);
+		
+		anneeNaissance = new JTextField();
+		GridBagConstraints gbc_anneeNaissance = new GridBagConstraints();
+		gbc_anneeNaissance.gridwidth = 2;
+		gbc_anneeNaissance.insets = new Insets(0, 0, 5, 0);
+		gbc_anneeNaissance.fill = GridBagConstraints.HORIZONTAL;
+		gbc_anneeNaissance.gridx = 1;
+		gbc_anneeNaissance.gridy = 5;
+		frame.getContentPane().add(anneeNaissance, gbc_anneeNaissance);
+		anneeNaissance.setColumns(3);
 		
 		lblNewLabel_3 = new JLabel("Adresse");
 		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
 		gbc_lblNewLabel_3.anchor = GridBagConstraints.EAST;
 		gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_3.gridx = 0;
-		gbc_lblNewLabel_3.gridy = 4;
+		gbc_lblNewLabel_3.gridy = 6;
 		frame.getContentPane().add(lblNewLabel_3, gbc_lblNewLabel_3);
 		
 		adresse = new JTextField();
@@ -166,7 +215,7 @@ public class GraphPannel {
 		gbc_adresse.insets = new Insets(0, 0, 5, 0);
 		gbc_adresse.fill = GridBagConstraints.HORIZONTAL;
 		gbc_adresse.gridx = 1;
-		gbc_adresse.gridy = 4;
+		gbc_adresse.gridy = 6;
 		frame.getContentPane().add(adresse, gbc_adresse);
 		adresse.setColumns(10);
 		
@@ -175,7 +224,7 @@ public class GraphPannel {
 		gbc_lblNewLabel_4.anchor = GridBagConstraints.EAST;
 		gbc_lblNewLabel_4.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_4.gridx = 0;
-		gbc_lblNewLabel_4.gridy = 5;
+		gbc_lblNewLabel_4.gridy = 7;
 		frame.getContentPane().add(lblNewLabel_4, gbc_lblNewLabel_4);
 		
 		selectSalle = new JComboBox();
@@ -184,7 +233,7 @@ public class GraphPannel {
 		gbc_selectSalle.insets = new Insets(0, 0, 5, 0);
 		gbc_selectSalle.fill = GridBagConstraints.HORIZONTAL;
 		gbc_selectSalle.gridx = 1;
-		gbc_selectSalle.gridy = 5;
+		gbc_selectSalle.gridy = 7;
 		frame.getContentPane().add(selectSalle, gbc_selectSalle);
 		
 		btnNewButton = new JButton("Cancel");
@@ -195,7 +244,7 @@ public class GraphPannel {
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
 		gbc_btnNewButton.gridx = 1;
-		gbc_btnNewButton.gridy = 7;
+		gbc_btnNewButton.gridy = 8;
 		frame.getContentPane().add(btnNewButton, gbc_btnNewButton);
 		
 		btnNewButton_1 = new JButton("Valider");
@@ -208,12 +257,16 @@ public class GraphPannel {
 				
 				prenom = inputPrenom.getText();
 			
+				jour = Integer.parseInt(jourNaissance.getText());  
+				mois = Integer.parseInt(moisNaissance.getText());  
+				annee = Integer.parseInt(anneeNaissance.getText());  
 				
+	
 				
 				EleveService eleveService = new EleveService() ;
 				AdresseService adresseService = new AdresseService() ;
 				
-				LocalDate dateNaissance =LocalDate.of(1992, 11, 16) ;
+				LocalDate dateNaissance =LocalDate.of(annee, mois, jour) ;
 				Adresse adresseEleve = new Adresse (55, "rue des dupont", 92222 ,"Neuilly","France") ;
 				System.out.println("adresseEleve : "+ adresseEleve);
 				 adresseService.create(adresseEleve) ;
@@ -232,7 +285,7 @@ public class GraphPannel {
 		});
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
 		gbc_btnNewButton_1.gridx = 2;
-		gbc_btnNewButton_1.gridy = 7;
+		gbc_btnNewButton_1.gridy = 9;
 		frame.getContentPane().add(btnNewButton_1, gbc_btnNewButton_1);
 		
 		menuBar = new JMenuBar();
@@ -241,7 +294,7 @@ public class GraphPannel {
 		mnNewMenu = new JMenu("Menu");
 		menuBar.add(mnNewMenu);
 		
-		mntmNewMenuItem = new JMenuItem("CrÃ©ation de salle");
+		mntmNewMenuItem = new JMenuItem("Crétion de salle");
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
