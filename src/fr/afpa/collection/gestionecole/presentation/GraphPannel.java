@@ -32,9 +32,7 @@ public class GraphPannel {
 	private String prenom;
 	private JTextField inputNom;
 	private JTextField inputPrenom;
-	
-	
-	
+
 	// date de naissance
 	private int jour;
 	private int mois;
@@ -42,11 +40,22 @@ public class GraphPannel {
 	private JTextField jourNaissance;
 	private JTextField moisNaissance;
 	private JTextField anneeNaissance;
+	// Adresse 
+	private int numero;
+	private String rue;
+	private int codePostale;
+	private String ville;
+	private String pays;
+	private JTextField numeroRue;
+	private JTextField nomRue;
+	private JTextField codeP;
+	private JTextField nomVille;
+	private JTextField nomPays;
+
 	
-	private JLabel lblNewLabel_3;
-	private JTextField adresse;
-	private JLabel lblNewLabel_4;
-	private JComboBox selectSalle;
+	
+
+
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JLabel lblNewLabel_5;
@@ -128,7 +137,6 @@ public class GraphPannel {
 		JLabel lblNewLabel_1 = new JLabel("Prénom");
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.anchor = GridBagConstraints.EAST;
-		
 		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_1.gridx = 0;
 		gbc_lblNewLabel_1.gridy = 2;
@@ -201,40 +209,102 @@ public class GraphPannel {
 		frame.getContentPane().add(anneeNaissance, gbc_anneeNaissance);
 		anneeNaissance.setColumns(3);
 		
-		lblNewLabel_3 = new JLabel("Adresse");
-		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
-		gbc_lblNewLabel_3.anchor = GridBagConstraints.EAST;
-		gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_3.gridx = 0;
-		gbc_lblNewLabel_3.gridy = 6;
-		frame.getContentPane().add(lblNewLabel_3, gbc_lblNewLabel_3);
 		
-		adresse = new JTextField();
-		GridBagConstraints gbc_adresse = new GridBagConstraints();
-		gbc_adresse.gridwidth = 2;
-		gbc_adresse.insets = new Insets(0, 0, 5, 0);
-		gbc_adresse.fill = GridBagConstraints.HORIZONTAL;
-		gbc_adresse.gridx = 1;
-		gbc_adresse.gridy = 6;
-		frame.getContentPane().add(adresse, gbc_adresse);
-		adresse.setColumns(10);
+	
 		
-		lblNewLabel_4 = new JLabel("Salle");
-		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
-		gbc_lblNewLabel_4.anchor = GridBagConstraints.EAST;
-		gbc_lblNewLabel_4.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_4.gridx = 0;
-		gbc_lblNewLabel_4.gridy = 7;
-		frame.getContentPane().add(lblNewLabel_4, gbc_lblNewLabel_4);
+		JLabel lblNewLabel_30 = new JLabel("Numero");
+		GridBagConstraints gbc_lblNewLabel_30 = new GridBagConstraints();
+		gbc_lblNewLabel_30.anchor = GridBagConstraints.EAST;
+		gbc_lblNewLabel_30.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_30.gridx = 0;
+		gbc_lblNewLabel_30.gridy = 6;
+		frame.getContentPane().add(lblNewLabel_30, gbc_lblNewLabel_30);
 		
-		selectSalle = new JComboBox();
-		GridBagConstraints gbc_selectSalle = new GridBagConstraints();
-		gbc_selectSalle.gridwidth = 2;
-		gbc_selectSalle.insets = new Insets(0, 0, 5, 0);
-		gbc_selectSalle.fill = GridBagConstraints.HORIZONTAL;
-		gbc_selectSalle.gridx = 1;
-		gbc_selectSalle.gridy = 7;
-		frame.getContentPane().add(selectSalle, gbc_selectSalle);
+		numeroRue = new JTextField();
+		GridBagConstraints gbc_numrue = new GridBagConstraints();
+		gbc_numrue.gridwidth = 2;
+		gbc_numrue.insets = new Insets(0, 0, 5, 0);
+		gbc_numrue.fill = GridBagConstraints.HORIZONTAL;
+		gbc_numrue.gridx = 1;
+		gbc_numrue.gridy = 6;
+		frame.getContentPane().add(numeroRue, gbc_numrue);
+		numeroRue.setColumns(10);
+		
+		JLabel lblNewLabel_31 = new JLabel("Rue");
+		GridBagConstraints gbc_lblNewLabel_31 = new GridBagConstraints();
+		gbc_lblNewLabel_31.anchor = GridBagConstraints.EAST;
+		gbc_lblNewLabel_31.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_31.gridx = 0;
+		gbc_lblNewLabel_31.gridy = 7;
+		frame.getContentPane().add(lblNewLabel_31, gbc_lblNewLabel_31);
+		
+		nomRue = new JTextField();
+		GridBagConstraints gbc_rue = new GridBagConstraints();
+		gbc_rue.gridwidth = 2;
+		gbc_rue.insets = new Insets(0, 0, 5, 0);
+		gbc_rue.fill = GridBagConstraints.HORIZONTAL;
+		gbc_rue.gridx = 1;
+		gbc_rue.gridy = 7;
+		frame.getContentPane().add(nomRue, gbc_rue);
+		nomRue.setColumns(10);
+	
+		JLabel  lblNewLabel_32 = new JLabel("Code Postale");
+		GridBagConstraints gbc_lblNewLabel_32 = new GridBagConstraints();
+		gbc_lblNewLabel_32.anchor = GridBagConstraints.EAST;
+		gbc_lblNewLabel_32.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_32.gridx = 0;
+		gbc_lblNewLabel_32.gridy = 8;
+		frame.getContentPane().add(lblNewLabel_32, gbc_lblNewLabel_32);
+
+		codeP = new JTextField();
+		GridBagConstraints gbc_codePostale = new GridBagConstraints();
+		gbc_codePostale.gridwidth = 2;
+		gbc_codePostale.insets = new Insets(0, 0, 5, 0);
+		gbc_codePostale.fill = GridBagConstraints.HORIZONTAL;
+		gbc_codePostale.gridx = 1;
+		gbc_codePostale.gridy = 8;
+		frame.getContentPane().add(codeP, gbc_codePostale);
+		codeP.setColumns(10);
+		
+		
+		JLabel lblNewLabel_33 = new JLabel("Ville");
+		GridBagConstraints gbc_lblNewLabel_33 = new GridBagConstraints();
+		gbc_lblNewLabel_33.anchor = GridBagConstraints.EAST;
+		gbc_lblNewLabel_33.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_33.gridx = 0;
+		gbc_lblNewLabel_33.gridy = 9;
+		frame.getContentPane().add(lblNewLabel_33, gbc_lblNewLabel_33);
+		
+		nomVille = new JTextField();
+		GridBagConstraints gbc_ville = new GridBagConstraints();
+		gbc_ville.gridwidth = 2;
+		gbc_ville.insets = new Insets(0, 0, 5, 0);
+		gbc_ville.fill = GridBagConstraints.HORIZONTAL;
+		gbc_ville.gridx = 1;
+		gbc_ville.gridy = 9;
+		frame.getContentPane().add(nomVille, gbc_ville);
+		nomVille.setColumns(10);
+		
+		
+		JLabel  lblNewLabel_34 = new JLabel("Pays");
+		GridBagConstraints gbc_lblNewLabel_34 = new GridBagConstraints();
+		gbc_lblNewLabel_34.anchor = GridBagConstraints.EAST;
+		gbc_lblNewLabel_34.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_34.gridx = 0;
+		gbc_lblNewLabel_34.gridy = 10;
+		frame.getContentPane().add(lblNewLabel_34, gbc_lblNewLabel_34);
+		
+		nomPays = new JTextField();
+		GridBagConstraints gbc_pays = new GridBagConstraints();
+		gbc_pays.gridwidth = 2;
+		gbc_pays.insets = new Insets(0, 0, 5, 0);
+		gbc_pays.fill = GridBagConstraints.HORIZONTAL;
+		gbc_pays.gridx = 1;
+		gbc_pays.gridy = 10;
+		frame.getContentPane().add(nomPays, gbc_pays);
+		nomPays.setColumns(10);
+		
+		
 		
 		btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -243,8 +313,8 @@ public class GraphPannel {
 		});
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton.gridx = 1;
-		gbc_btnNewButton.gridy = 8;
+		gbc_btnNewButton.gridx = 0;
+		gbc_btnNewButton.gridy = 11;
 		frame.getContentPane().add(btnNewButton, gbc_btnNewButton);
 		
 		btnNewButton_1 = new JButton("Valider");
@@ -256,18 +326,26 @@ public class GraphPannel {
 				nom = inputNom.getText();
 				
 				prenom = inputPrenom.getText();
-			
+			//date de naissance
 				jour = Integer.parseInt(jourNaissance.getText());  
 				mois = Integer.parseInt(moisNaissance.getText());  
 				annee = Integer.parseInt(anneeNaissance.getText());  
-				
-	
+				// adresse
+
+				numero = Integer.parseInt(numeroRue.getText());  
+				rue = nomRue.getText();  
+				codePostale = Integer.parseInt(codeP.getText());  
+				ville = nomVille.getText();  
+				pays = nomPays.getText();  
+
 				
 				EleveService eleveService = new EleveService() ;
 				AdresseService adresseService = new AdresseService() ;
 				
 				LocalDate dateNaissance =LocalDate.of(annee, mois, jour) ;
-				Adresse adresseEleve = new Adresse (55, "rue des dupont", 92222 ,"Neuilly","France") ;
+				
+			
+				Adresse adresseEleve = new Adresse (numero, rue, codePostale ,ville,pays) ;
 				System.out.println("adresseEleve : "+ adresseEleve);
 				 adresseService.create(adresseEleve) ;
 				Adresse theDatabaseAdress = adresseService.findTheAdress(adresseEleve) ;
@@ -277,15 +355,11 @@ public class GraphPannel {
 				// Je stocke cette adresse dans une autre variable
 				Eleve EleveToDelete = eleve ;
 				eleveService.create(eleve) ;
-				
-				
-				
-				
 			}
 		});
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
-		gbc_btnNewButton_1.gridx = 2;
-		gbc_btnNewButton_1.gridy = 9;
+		gbc_btnNewButton_1.gridx = 1;
+		gbc_btnNewButton_1.gridy = 11;
 		frame.getContentPane().add(btnNewButton_1, gbc_btnNewButton_1);
 		
 		menuBar = new JMenuBar();
