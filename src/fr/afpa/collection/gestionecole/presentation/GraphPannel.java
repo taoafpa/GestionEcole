@@ -30,7 +30,7 @@ import javax.swing.JMenuItem;
 
 public class GraphPannel {
 	private JFrame frame;
-	private JFrame frame2;
+
 	
 	// nom et prenom
 	private String nom;
@@ -308,6 +308,7 @@ public class GraphPannel {
 				eleveService.create(eleve) ;
 			}
 		});
+		
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
 		gbc_btnNewButton_1.gridx = 1;
 		gbc_btnNewButton_1.gridy = 11;

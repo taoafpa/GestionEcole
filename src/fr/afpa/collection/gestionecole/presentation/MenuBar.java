@@ -1,6 +1,7 @@
 package fr.afpa.collection.gestionecole.presentation;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
@@ -16,7 +17,13 @@ import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 public class MenuBar extends JFrame {
     
-    /* Construction de l'interface graphique */
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
+	/* Construction de l'interface graphique */
     public MenuBar() {
         super( "Mon école" );
         this.setSize(600,400);
@@ -38,11 +45,18 @@ public class MenuBar extends JFrame {
         JMenu mnuFile = new JMenu( "Salles" );
         mnuFile.setMnemonic( 'F' );
 
-        JMenuItem mnuNewFile = new JMenuItem( "Nouvelle salle" );
+        JMenuItem mnuNewFile = new JMenuItem( "Nouvel Eleve" );
         mnuNewFile.setIcon( new ImageIcon( "icons/new.png" ) );
         mnuNewFile.setMnemonic( 'N' );
         mnuNewFile.setAccelerator( KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_DOWN_MASK) );
-        mnuNewFile.addActionListener( this::mnuNewListener );
+        mnuNewFile.addActionListener( new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				 JOptionPane.showMessageDialog( MenuBar.this, "Button nouvel Eleve clicked !" );
+				
+			}
+		} );
         mnuFile.add(mnuNewFile);
 
         mnuFile.addSeparator();
@@ -57,6 +71,7 @@ public class MenuBar extends JFrame {
         mnuSaveFile.setIcon( new ImageIcon( "icons/save.png" ) );
         mnuSaveFile.setMnemonic( 'S' );
         mnuSaveFile.setAccelerator( KeyStroke.getKeyStroke(KeyEvent.VK_S, KeyEvent.CTRL_DOWN_MASK) );
+        mnuSaveFile.addActionListener( this::ChercheSalleListener );
         mnuFile.add(mnuSaveFile);
 
         JMenuItem mnuSaveFileAs = new JMenuItem( "Save File As ..." );
@@ -79,7 +94,7 @@ public class MenuBar extends JFrame {
         mnuEdit.setMnemonic( 'E' );
         
         JMenuItem mnuUndo = new JMenuItem( "Ajouter Elève" );
-        mnuUndo.setIcon( new ImageIcon( "icons/undo.png" ) );
+        mnuUndo.setIcon( new ImageIcon( "icons/undo.png" ));
         mnuUndo.setMnemonic( 'U' );
         mnuUndo.setAccelerator( KeyStroke.getKeyStroke(KeyEvent.VK_Z, KeyEvent.CTRL_DOWN_MASK) );
         mnuEdit.add(mnuUndo);
@@ -121,13 +136,39 @@ public class MenuBar extends JFrame {
         return menuBar;
     }
 
+    public void addEleveListener( ActionEvent event ) {
+        JOptionPane.showMessageDialog( this, "Button addEleve clicked !" );
+    }
+    
+    
+    
+    public void newsalleListener( ActionEvent event ) {
+        JOptionPane.showMessageDialog( this, "Button new salle clicked !" );
+    }
+    
+    
+    public void ChercheSalleListener( ActionEvent event ) {
+        JOptionPane.showMessageDialog( this, "Button ChercheSalle clicked !" );
+    }
+    
+    public void listeElevesListener( ActionEvent event ) {
+        JOptionPane.showMessageDialog( this, "Button Liste Eleve clicked !" );
+    }
+    
+    public void contactListener( ActionEvent event ) {
+        JOptionPane.showMessageDialog( this, "Button contact clicked !" );
+    }
+    
     public void mnuNewListener( ActionEvent event ) {
         JOptionPane.showMessageDialog( this, "Button clicked !" );
     }
+    
    
     public static void main(String[] args) throws Exception {
         UIManager.setLookAndFeel( new NimbusLookAndFeel() );
         MenuBar frame = new MenuBar();
         frame.setVisible(true);
     }
+
+
 }
