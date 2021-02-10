@@ -9,6 +9,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
 
+import fr.afpa.collection.gestionecole.dao.AdresseService;
 import fr.afpa.collection.gestionecole.dao.EleveService;
 import fr.afpa.collection.gestionecole.metier.Adresse;
 import fr.afpa.collection.gestionecole.metier.Eleve;
@@ -206,13 +207,26 @@ public class GraphPannel {
 				nom = inputNom.getText();
 				
 				prenom = inputPrenom.getText();
+			
 				
-				LocalDate dateNaissance = LocalDate.of(1998, 01, 22);
 				
-				EleveService eleveService = new EleveService();
-				// new Eleve ("Dupont","Valéria", dateNaissance , 33 , theDatabaseAdress ) ;
+				EleveService eleveService = new EleveService() ;
+				AdresseService adresseService = new AdresseService() ;
+				
+				LocalDate dateNaissance =LocalDate.of(1992, 11, 16) ;
 				Adresse adresseEleve = new Adresse (55, "rue des dupont", 92222 ,"Neuilly","France") ;
-				eleveService.create(new Eleve(nom, prenom, dateNaissance,33,adresseEleve));
+				System.out.println("adresseEleve : "+ adresseEleve);
+				 adresseService.create(adresseEleve) ;
+				Adresse theDatabaseAdress = adresseService.findTheAdress(adresseEleve) ;
+				System.out.println("theDatabaseAdress : "+ theDatabaseAdress);
+				
+				Eleve eleve = new Eleve (nom,prenom, dateNaissance , 33 , theDatabaseAdress ) ;
+				// Je stocke cette adresse dans une autre variable
+				Eleve EleveToDelete = eleve ;
+				eleveService.create(eleve) ;
+				
+				
+				
 				
 			}
 		});

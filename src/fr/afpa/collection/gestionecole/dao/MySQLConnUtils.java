@@ -18,8 +18,8 @@ public class MySQLConnUtils {
            ClassNotFoundException {
        String hostName = "localhost";
        String dbName = "ecolesup";
-       String userName = "root";
-       String password = "root";
+       String userName = "taoafpa";
+       String password = "123afpa!My";
        String paramConn = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
        return getMySQLConnection(hostName, dbName, userName, password, paramConn);
    }
